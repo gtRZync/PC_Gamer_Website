@@ -57,3 +57,6 @@ Un grand merci aux ressources en ligne et à l'IA qui m'ont guidé dans l'appren
 ## Avertissement
 
 Ce projet est conçu pour un usage éducatif. Le système d'authentification et de sécurité n'est pas optimisé pour un environnement de production.
+=======
+# PC_Gamer_Website
+>>>>>>> 6358cc8480101fc2114b4937e88e7bd9c76ac7f7
