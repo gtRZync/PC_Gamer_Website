@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $servername = "localhost"; 
 $username = "root"; 
 $password = ""; 
@@ -13,18 +15,24 @@ if ($conn->connect_error) {
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
     
-    // Suppression dans la base de données
-    $sql = "DELETE FROM produits WHERE id = $id";
-    
-    if ($conn->query($sql) === TRUE) {
-        echo "Produit supprimé avec succès!";
+
+    $sql = "DELETE FROM produits WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+
+
+    if ($stmt->execute()) {
+        $_SESSION['success_message'] = "Produit supprimé avec succès!";
     } else {
-        echo "Erreur: " . $conn->error;
+        $_SESSION['error_message'] = "Erreur lors de la suppression du produit: " . $stmt->error;
     }
+    
+    $stmt->close();
 } else {
-    echo "Aucun ID de produit spécifié.";
+    $_SESSION['error_message'] = "Aucun ID de produit spécifié.";
 }
 
 $conn->close();
-?>
-<a href="CRUD.php">Retourner à la liste des produits</a>
+
+header("Location: CRUD.php");
+exit();
