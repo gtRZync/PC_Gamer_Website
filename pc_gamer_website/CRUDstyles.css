@@ -1,0 +1,286 @@
+.upper {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.center {
+    position: absolute;
+    top: -10px;
+    right: 550px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #4A90E2 0%, #7f99cd 100%);
+}
+
+/* Glassmorphism for CRUD container */
+.CRUD {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    padding: 30px 50px;
+    width: 90%;
+    max-width: 800px; 
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    overflow: auto; /* Pour permettre un défilement si le contenu dépasse la hauteur */
+}
+
+h1 {
+    font-size: 35px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+table, th, td {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+th {
+    background-color: rgba(74, 144, 226, 0.7);
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* User column with ellipsis for long names */
+td.username {
+    max-width: 150px; /* Limite la largeur du nom d'utilisateur */
+    white-space: nowrap; /* Pas de retour à la ligne */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Tronque le texte s'il est trop long */
+}
+
+/* Style des liens */
+a {
+    color: #f2f2f2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #FFF;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+input[type="submit"] {
+    background-color: rgba(74, 144, 226, 0.8);
+    color: #ffffff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: rgba(74, 144, 226, 1);
+    transform: translateY(-3px);
+}
+
+input[type="number"] {
+    width: calc(12% - 20px);
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ajout d'ombre */
+    padding: 10px; 
+    background: rgba(255, 255, 255, 0.2); /* Arrière-plan plus foncé */
+}
+
+input[type="number"]:focus {
+    outline: none; /* Supprime le contour par défaut */
+    border-color: rgba(74, 144, 226, 1); /* Change la couleur de la bordure au focus */
+    background: rgba(255, 255, 255, 0.3); /* Arrière-plan plus foncé au focus */
+}
+
+/* Action buttons */
+table td a {
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    margin: 0 10px; /* Ajoute une marge de 10px de chaque côté */
+}
+
+
+table td a[href*="update"] {
+    background-color: rgba(74, 144, 226, 0.7);
+    color: white;
+    margin-right: 5px;
+}
+
+table td a[href*="delete"] {
+    background-color: rgba(226, 74, 74, 0.7);
+    color: white;
+}
+
+table td a:hover {
+    opacity: 0.9;
+}
+
+/* Success message */
+.success {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #212488;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    
+}
+
+/* Error message */
+.error {
+    border: 1px solid rgba(226, 74, 74, 0.8);
+    background-color: rgba(226, 74, 74, 0.1);
+    color: rgba(226, 74, 74, 1);
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+
+select {
+    width: 30%; 
+    padding: 10px; /* Espacement interne */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Bordure avec opacité */
+    border-radius: 8px; /* Coins arrondis */
+    background: rgba(255, 255, 255, 0.1); /* Couleur de fond avec opacité */
+    color: #ffffff; /* Couleur du texte */
+    font-size: 14px; /* Taille de la police */
+    appearance: none; /* Suppression de l'apparence par défaut du select */
+    -webkit-appearance: none; /* Support pour Safari */
+    -moz-appearance: none; /* Support pour Firefox */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5"><polygon points="0,0 5,5 10,0" fill="white"/></svg>'); /* Flèche personnalisée */
+    background-repeat: no-repeat; /* Pas de répétition de l'image */
+    background-position: right 10px center; /* Position de la flèche */
+    background-size: 10px; /* Taille de la flèche */
+    cursor: pointer;
+}
+
+
+select:hover {
+    border-color: rgba(255, 255, 255, 0.7); 
+}
+
+
+select:focus {
+    outline: none; 
+    border-color: rgba(74, 144, 226, 1);
+    background: rgba(255, 255, 255, 0.2); 
+}
+
+/* Glassmorphism for product management section */
+.product-form {
+    background: rgba(255, 255, 255, 0.4); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.product-form label {
+    color: #FFFFFF;
+    margin-bottom: 5px;
+}
+
+.product-form input[type="text"],
+.product-form input[type="submit"] {
+    width: calc(60% - 20px);
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2); 
+}
+
+.product-form input[type="number"] {
+    width: calc(12% - 20px); /* Largeur spécifique pour le champ de type number */
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px; 
+    background: rgba(255, 255, 255, 0.2);/
+}
+
+.product-form input[type="submit"] {
+    background-color: rgba(74, 144, 226, 0.8);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.product-form input[type="text"]:focus,
+.product-form input[type="number"]:focus {
+    outline: none; 
+    border-color: rgba(74, 144, 226, 1);
+    background: rgba(255, 255, 255, 0.3); 
+}
+
+.product-form input[type="submit"]:hover {
+    background-color: rgba(74, 144, 226, 1); 
+}
