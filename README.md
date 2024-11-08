@@ -1,4 +1,3 @@
-
 # Miniboutique - Site de Vente de Matériel Gaming
 
 Miniboutique est une boutique en ligne dédiée à la vente de matériel gaming, incluant des ordinateurs, écrans, claviers, souris, et autres équipements PC gamer. Ce projet a été développé pour apprendre et démontrer des compétences en HTML, CSS, JavaScript, PHP, et SQL.
