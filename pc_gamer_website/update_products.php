@@ -84,7 +84,7 @@ try {
         } catch (PDOException $e) {
             // Message d'erreur
             $_SESSION['error_message'] = "Erreur lors de la mise à jour : " . $e->getMessage();
-            header("Location: edit_product.php?id=$id");
+            header("Location: update_products.php?id=$id");
             exit;
         }
     }
